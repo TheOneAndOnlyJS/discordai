@@ -3,6 +3,12 @@ const {Configuration, OpenAIApi} = require('openai');
 const path = require('path')
 const fs = require('fs')
 require('dotenv').config();
+const express = require('express');
+const server = express();
+
+server.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'))
+})
 
 const channelID = process.env.CHANNEL_ID
 
@@ -88,3 +94,4 @@ client.on('ready', () => {
 })
 
 client.login(process.env.BOT_TOKEN)
+server.listen(7000 || process.env.PORT)
