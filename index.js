@@ -52,7 +52,7 @@ client.on('messageCreate', async (message) => {
         if(message.author.bot){
             return;
         }
-        if(message.channel.id === channelID && message.content.toLowerCase().startsWith('/testai')) {
+        if(message.content.toLowerCase().startsWith('/testai')) {
             const AIResponse = await openAI.createChatCompletion({
                 model: "gpt-3.5-turbo",
                 messages: [{role: "user", content: message.content}]
