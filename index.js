@@ -49,6 +49,7 @@ main();*/
 
 client.on('messageCreate', async (message) => {
     try{
+        console.log(message.content)
         if(message.author.bot){
             return;
         }
@@ -82,6 +83,8 @@ client.on('messageCreate', async (message) => {
 
 client.on('ready', () => {
     console.log(`${client.user.username} has logged in`)
+    console.log(channelID, process.env.BOT_TOKEN, process.env.CLIENT_ID, process.env.GUILD_ID,
+        process.env.OPENAI_API_KEY)
 })
 
 client.login(process.env.BOT_TOKEN)
